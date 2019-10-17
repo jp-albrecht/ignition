@@ -1,4 +1,5 @@
-import { wrap, throttle } from './utils';
+import { throttle, wrap } from './utils';
+
 /*--------------------------------------------------------------
 # Adding some global events and functions users can use via data attributes
 --------------------------------------------------------------*/
@@ -200,7 +201,7 @@ function placeMenuButtons() {
 	// }
 
 	if ( menuButtons.length ) {
-		menuButtons.forEach( ( button ) => {
+		menuButtons.forEach( (button) => {
 			button.style.height = $siteTopHeight + 'px';
 		} );
 	}
@@ -234,7 +235,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	/*------- Scroll Magic Events Init --------*/
 	if ( 'undefined' !== typeof ScrollMagic ) {
 		scrollMagicController = new ScrollMagic.Controller();
-		document.querySelectorAll( '[data-scrollanimation]' ).forEach( ( element ) => {
+		document.querySelectorAll( '[data-scrollanimation]' ).forEach( (element) => {
 			runScrollerAttributes( element );
 		} );
 	}
@@ -255,7 +256,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 	//add aria to buttons currently on page
 	const buttons = document.querySelectorAll( '[data-toggle]' );
-	buttons.forEach( ( button ) => {
+	buttons.forEach( (button) => {
 		button.setAttribute( 'role', 'switch' );
 		button.setAttribute(
 			'aria-checked',
@@ -264,7 +265,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	} );
 
 	//toggling the buttons with delegation click
-	document.body.addEventListener( 'click', ( e ) => {
+	document.body.addEventListener( 'click', (e) => {
 		const item = e.target.closest( '[data-toggle]' );
 
 		if ( item ) {
@@ -285,7 +286,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 					`[data-radio="${ radioSelector }"]`
 				);
 
-				radioSelectors.forEach( ( radioItem ) => {
+				radioSelectors.forEach( (radioItem) => {
 					if (
 						radioItem !== item &&
 						radioItem.classList.contains( 'toggled-on' )
@@ -338,7 +339,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}
 		//special class added to another item
 		if ( $target.length ) {
-			$target.forEach( ( targetItem ) => {
+			$target.forEach( (targetItem) => {
 				if ( isToggled ) {
 					targetItem.classList.add( $class );
 				} else {
@@ -389,7 +390,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		const windowWidth = window.innerWidth;
 		const $moveItems = document.querySelectorAll( '[data-moveto]' );
 
-		$moveItems.forEach( ( item ) => {
+		$moveItems.forEach( (item) => {
 			let moveAt = item.getAttribute( 'data-moveat' ),
 				destination = document.querySelector( item.getAttribute( 'data-moveto' ) ),
 				source = item.getAttribute( 'data-movefrom' );
@@ -456,7 +457,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		placeMenuButtons(); //running the moving of menu buttons here. nothing to do with moving items.
 
 		//fix height of fixed holder fixed at top items
-		document.querySelectorAll( '.fixed-holder' ).forEach( ( fixed ) => {
+		document.querySelectorAll( '.fixed-holder' ).forEach( (fixed) => {
 			fixed.style.height = fixed.firstElementChild.clientHeight + 'px';
 		} );
 	}
@@ -466,7 +467,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 	document.documentElement.classList.remove( 'dom-loading' );
 
-	//add finished loading ignition events
+	//add finished loading ignition-2.0 events
 	let EventFinished = null;
 	if ( isIE11 ) {
 		EventFinished = document.createEvent( 'Event' );
@@ -502,7 +503,7 @@ function fileExists( image_url ) {
 //Add inline retina image if found and on retina device. To use add data-high-res to an inline element with a background-image
 if ( isHighDensity() ) {
 	const retinaImage = document.querySelectorAll( '[data-high-res]' );
-	retinaImage.forEach( ( item ) => {
+	retinaImage.forEach( (item) => {
 		let image2x = '';
 		//if a high res is provided use that, else use background image but add 2x at end.
 		if ( item.dataset.highRes ) {

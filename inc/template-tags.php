@@ -1,10 +1,10 @@
 <?php
 /**
- * Custom template tags for ignition
+ * Custom template tags for ignition-2.0
  * Most expect you to be in the loop
  * ign_get_terms  and ign_get_term_links does not need to be in loop
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  */
 
@@ -17,7 +17,7 @@ if ( ! function_exists( 'ign_posted_by' ) ) {
 		$author_id          = get_the_author_meta( 'ID' );
 		$author_link        = esc_url( get_author_posts_url( $author_id ) );
 		$author_image       = '<a href="' . $author_link . '" class="author-avatar">' . get_avatar( $author_id, 50 ) . '</a>';
-		$author_name        = sprintf( __( '%s by %s', 'ignition' ), '<a href="' . $author_link . '" class="author-name"><span class="byline">', '</span>' . get_the_author() . '</a>' );
+		$author_name        = sprintf( __( '%s by %s', 'ignition-2.0-2-0' ), '<a href="' . $author_link . '" class="author-name"><span class="byline">', '</span>' . get_the_author() . '</a>' );
 		$author_description = '<div class="author-description">' . get_the_author_meta( 'description' ) . '</div>';
 
 		echo '<div class="posted-by">' . $author_image . '<div class="author-info">' . $author_name . $author_description . '</div></div>';
@@ -100,7 +100,7 @@ if ( ! function_exists( 'ign_get_term_links' ) ) {
 					$term_links[] = '<a class="term-link ' . $taxonomy . '" href="' . get_term_link( $term->term_id, $taxonomy ) . '">' . $term->name . '</a>';
 				}
 				//add comma after each one
-				$term_links_output = join( '<span class="delim">' . __( ', ', 'ignition' ) . '</span>', $term_links );
+				$term_links_output = join( '<span class="delim">' . __( ', ', 'ignition-2.0-2-0' ) . '</span>', $term_links );
 			}
 
 			return $term_links_output;
@@ -191,7 +191,7 @@ function ign_edit_link( $id = null, $class = '', $text = 'Edit' ) {
 	edit_post_link(
 		sprintf(
 		/* translators: %s: Name of current post */
-			__( '%s<span class="screen-reader-text"> "%s"</span>', 'ignition' ),
+			__( '%s<span class="screen-reader-text"> "%s"</span>', 'ignition-2.0-2-0' ),
 			$text, get_the_title()
 		),
 		'<span class="edit-link">',
@@ -410,7 +410,7 @@ function ign_the_content(){
 	$has_header = has_block( 'acf/header' );
 	if ( $has_header || has_blocks() ) {
 		if ( ! $has_header ) {
-			locate_template( 'template-parts/site-top/default-header.php', true );
+			locate_template( 'template-parts/acf-blocks/header/default-header.php', true );
 		}
 
 		the_content();

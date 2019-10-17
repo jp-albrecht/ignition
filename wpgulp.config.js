@@ -8,12 +8,19 @@
  */
 
 module.exports = {
-
 	// Project options.
-	projectURL: 'ignition.local', // Local project URL of your already running WordPress site. Could be something like wpgulp.local or localhost:3000 depending upon your local WordPress setup.
+	projectURL: 'ignition-2.0.local', // Local project URL of your already running WordPress site. Could be something like wpgulp.local or localhost:3000 depending upon your local WordPress setup.
 	productURL: './', // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 	browserAutoOpen: false,
 	injectChanges: true,
+
+	//Template Part sass watches
+	templatePartsStyles: './template-parts/**/*.scss', //getting any sass from the template parts folder
+	templatePartsStylesDestination: './assets/sass/wordpress',
+	templatePartStyleFile: '_template-parts',
+	templatePartsScripts: './template-parts/**/*.js',
+	templatePartsScriptsDestination: './assets/js/custom',
+	templatePartScriptsFile: 'template-scripts',
 
 	// Style options.
 	styleSRC: './assets/sass/*.scss', // Path to main .scss file.
@@ -38,15 +45,17 @@ module.exports = {
 
 	// Watch files paths.
 	watchStyles: './assets/sass/**/*.scss', // Path to all *.scss files inside css folder and inside them.
+	watchTemplatePartsStyles: './template-parts/**/*.scss',
+	watchTemplatePartsScripts: './template-parts/**/*.js',
 	watchJsVendor: './assets/js/vendor/*.js', // Path to all vendor JS files.
 	watchJsCustom: './assets/js/custom/*.js', // Path to all custom JS files.
 	watchPhp: './**/*.php', // Path to all PHP files.
 
 	// Translation options.
-	textDomain: 'ignition', // Your textdomain here.
-	translationFile: 'ignition.pot', // Name of the translation file.
+	textDomain: 'ignition-2.0-2-0', // Your textdomain here.
+	translationFile: 'ignition-2.0-2-0', // Name of the translation file.
 	translationDestination: './languages', // Where to save the translation files.
-	packageName: 'ignition', // Package name.
+	packageName: 'ignition-2.0-2-0', // Package name.
 	bugReport: 'https://AhmadAwais.com/contact/', // Where can users report bugs.
 	lastTranslator: 'Ahmad Awais <your_email@email.com>', // Last translator Email ID.
 	team: 'AhmadAwais <your_email@email.com>', // Team's Email ID.
@@ -64,6 +73,6 @@ module.exports = {
 		'last 2 Safari versions',
 		'last 2 iOS versions',
 		'last 2 Edge versions',
-		'last 2 Opera versions'
-	]
+		'last 2 Opera versions',
+	],
 };

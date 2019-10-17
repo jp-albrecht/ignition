@@ -2,7 +2,7 @@
 /**
  * Additional features to allow styling of the templates easier
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  */
 
@@ -13,7 +13,7 @@
  *
  * @return array
  */
-function ignition_body_classes( $classes ) {
+function ignition_2_0_body_classes( $classes ) {
 	// Add class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -26,12 +26,12 @@ function ignition_body_classes( $classes ) {
 
 	// Add class if we're viewing the Customizer for easier styling of theme options.
 	if ( is_customize_preview() ) {
-		$classes[] = 'ignition-customizer';
+		$classes[] = 'ignition-2.0-2-0-customizer';
 	}
 
 	// Add class on front page.
 	if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) ) {
-		$classes[] = 'ignition-front-page';
+		$classes[] = 'ignition-2.0-2-0-front-page';
 	}
 
 	// Add a class if there is a custom header.
@@ -62,7 +62,7 @@ function ignition_body_classes( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'ignition_body_classes' );
+add_filter( 'body_class', 'ignition_2_0_body_classes' );
 
 
 

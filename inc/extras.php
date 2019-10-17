@@ -15,13 +15,13 @@
  *
  * @since Ignition 1.0
  */
-function ignition_javascript_detection() {
+function ignition_2_0_javascript_detection() {
 	echo "<script type='text/javascript'>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 	echo "<script type='text/javascript'>var  isIE11 = !!window.MSInputMethodContext && !!document.documentMode;</script>";
 }
 
-add_action( 'wp_head', 'ignition_javascript_detection', 0 );
-add_action( 'admin_head', 'ignition_javascript_detection', 0 );
+add_action( 'wp_head', 'ignition_2_0_javascript_detection', 0 );
+add_action( 'admin_head', 'ignition_2_0_javascript_detection', 0 );
 
 
 /*
@@ -48,13 +48,13 @@ add_action( 'init', 'ign_post_type_functions', 15 );
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function ignition_pingback_header() {
+function ignition_2_0_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
 }
 
-add_action( 'wp_head', 'ignition_pingback_header' );
+add_action( 'wp_head', 'ignition_2_0_pingback_header' );
 
 
 /*--------------------------------------------------------------
@@ -140,7 +140,7 @@ add_action( 'admin_head', 'admin_bar_color_dev_site' );
  * @since Ignition 1.0
  *
  */
-function ignition_excerpt_more( $more ) {
+function ignition_2_0_excerpt_more( $more ) {
 	if ( is_admin() ) {
 		return $more;
 	}
@@ -148,7 +148,7 @@ function ignition_excerpt_more( $more ) {
 	return '&hellip; ';
 }
 
-add_filter( 'excerpt_more', 'ignition_excerpt_more' );
+add_filter( 'excerpt_more', 'ignition_2_0_excerpt_more' );
 
 
 /*--------------------------------------------------------------
@@ -164,8 +164,8 @@ add_filter( 'excerpt_more', 'ignition_excerpt_more' );
  * @since Ignition 1.0
  *
  */
-function ignition_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'ignition-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+function ignition_2_0_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'ignition-2.0-2-0-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -175,7 +175,7 @@ function ignition_resource_hints( $urls, $relation_type ) {
 	return $urls;
 }
 
-add_filter( 'wp_resource_hints', 'ignition_resource_hints', 10, 2 );
+add_filter( 'wp_resource_hints', 'ignition_2_0_resource_hints', 10, 2 );
 
 
 /*--------------------------------------------------------------
@@ -203,7 +203,7 @@ function ign_menu( $item, $args ) {
 
 	if ( in_array( 'menu-item-has-children', (array) $classes ) ) {
 		$item .= '<button tabindex="-1" aria-haspopup="true" data-toggle aria-expanded="false" class="submenu-dropdown-toggle">' . ign_get_svg( array( "icon" => "angle-right" ) ) . '
-                    <span class="screen-reader-text">' . __( 'Expand child menu', 'ignition' ) . '</span></button>';
+                    <span class="screen-reader-text">' . __( 'Expand child menu', 'ignition-2.0-2-0' ) . '</span></button>';
 	}
 
 	return '<div class="menu-item-link">' . $item . '</div>';
@@ -305,7 +305,7 @@ add_filter( 'wp_check_filetype_and_ext', 'svgs_disable_real_mime_check', 10, 4 )
  *
  * @return void
  */
-function ignition_output_inline_svg( $html ) {
+function ignition_2_0_output_inline_svg( $html ) {
 	$logo_id = get_theme_mod( 'custom_logo' ); //made by wp with add_theme_support
 
 	if ( get_post_mime_type( $logo_id ) == 'image/svg+xml' ) {
@@ -316,7 +316,7 @@ function ignition_output_inline_svg( $html ) {
 	return $html;
 }
 
-add_filter( 'get_custom_logo', 'ignition_output_inline_svg' );
+add_filter( 'get_custom_logo', 'ignition_2_0_output_inline_svg' );
 
 
 /**
@@ -387,7 +387,7 @@ add_filter( 'login_headerurl', 'ign_login_url' );
  */
 
 /**
- * ignition_is_page_archive_header function.
+ * ignition_2_0_is_page_archive_header function.
  *
  * @access public
  *
@@ -466,7 +466,7 @@ function add_archive_edit_link( $admin_bar ) {
 	if ( ! is_admin() && is_post_type_archive() && $archive_id ) {
 		$admin_bar->add_menu( array(
 			'id'    => 'archive-link',
-			'title' => sprintf( __( 'Edit %s Page', 'ignition' ), get_post_type_object( get_post_type() )->labels->name ),
+			'title' => sprintf( __( 'Edit %s Page', 'ignition-2.0-2-0' ), get_post_type_object( get_post_type() )->labels->name ),
 			'href'  => get_edit_post_link( $archive_id ),
 		) );
 	}
@@ -483,7 +483,7 @@ function add_archive_edit_link( $admin_bar ) {
  */
 
 //html5 comment
-function ignition_comments_callback( $comment, $args, $depth ) {
+function ignition_2_0_comments_callback( $comment, $args, $depth ) {
 
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 	?>

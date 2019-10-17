@@ -17,7 +17,7 @@ if ( get_theme_mod( 'site_top_use_customizer', 'yes' ) == 'yes' ):
 
 			<div class="site-navigation__nav-holder" data-moveto="#panel-left" data-moveat="--nav-move" data-moveto-pos="0">
 				<nav class="site-navigation__nav" role="navigation"
-				     aria-label="<?php _e( 'Top Menu', 'ignition' ); ?>">
+				     aria-label="<?php _e( 'Top Menu', 'ignition-2.0-2-0' ); ?>">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'top-menu',
 						'menu_id' => 'top-menu',

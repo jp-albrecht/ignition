@@ -64,9 +64,9 @@ $loop_class = ( $loop_class == '' ) ? 'card-grid' : $loop_class;
 					<div class="card-pagination text-center">
 						<?php
 						the_posts_pagination( array(
-							'prev_text'          => ign_get_svg( array( 'icon' => 'angle-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'ignition' ) . '</span>',
-							'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'ignition' ) . '</span>' . ign_get_svg( array( 'icon' => 'angle-right' ) ),
-							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'ignition' ) . ' </span>',
+							'prev_text'          => ign_get_svg( array( 'icon' => 'angle-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'ignition-2.0-2-0' ) . '</span>',
+							'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'ignition-2.0-2-0' ) . '</span>' . ign_get_svg( array( 'icon' => 'angle-right' ) ),
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'ignition-2.0-2-0' ) . ' </span>',
 						) );
 						?>
 					</div>

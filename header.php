@@ -6,7 +6,7 @@
  *
  * Some stuff are added to the head via wp_head() from functions.php including title tag, fonts, style.css, scripts and more
  *
- * @package ignition
+ * @package ignition-2.0
  * @since 1.0
  * @version 1.0
  */
@@ -31,7 +31,7 @@ if ( get_theme_mod( 'app_menu', 'regular_menu' ) ) {
 ?>
 <body <?php body_class($app_menu); ?>>
 <a class="skip-link screen-reader-text" href="#site-content">
-	<?php _e( 'Skip to content', 'ignition' ); ?>
+	<?php _e( 'Skip to content', 'ignition-2.0-2-0' ); ?>
 </a>
 
 <div class="site-container" id="site-container">

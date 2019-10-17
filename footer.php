@@ -5,7 +5,7 @@
  * Contains the closing of the #page and #content div and any content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * @version 1.0
  */
@@ -34,10 +34,10 @@
 
 
 <div id="outdated">
-    <h6><?php _e( 'Your browser is out-of-date!', 'ignition' ); ?></h6>
-    <p><?php _e( 'Update your browser to view this website correctly.', 'ignition' ); ?> <a id="btnUpdateBrowser"
+    <h6><?php _e( 'Your browser is out-of-date!', 'ignition-2.0-2-0' ); ?></h6>
+    <p><?php _e( 'Update your browser to view this website correctly.', 'ignition-2.0-2-0' ); ?> <a id="btnUpdateBrowser"
                                                                                             href="http://outdatedbrowser.com/"><?php _e( 'Update
-			my browser now', 'ignition' ); ?></a></p>
+			my browser now', 'ignition-2.0-2-0' ); ?></a></p>
     <p class="last"><a data-toggle="hidden" data-target="#outdated" href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
 

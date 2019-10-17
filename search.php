@@ -6,7 +6,7 @@
  * Or just add the pull in sidebar
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * @version 1.0
  */
@@ -20,9 +20,9 @@ get_header(); ?>
 
                 <div class="header-content container-fluid">
                     <?php if ( have_posts() ) : ?>
-                        <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'ignition' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                        <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'ignition-2.0-2-0' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
                     <?php else : ?>
-                        <h1 class="page-title"><?php _e( 'Nothing Found', 'ignition' ); ?></h1>
+                        <h1 class="page-title"><?php _e( 'Nothing Found', 'ignition-2.0-2-0' ); ?></h1>
                     <?php endif; ?>
                     <div class="container-content">
                         <?php
@@ -63,9 +63,9 @@ get_header(); ?>
 			        <?php
 
 			        the_posts_pagination( array(
-				        'prev_text'          => ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'ignition' ) . '</span>',
-				        'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'ignition' ) . '</span>' . ign_get_svg( array( 'icon' => 'arrow-right' ) ),
-				        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'ignition' ) . ' </span>',
+				        'prev_text'          => ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'ignition-2.0-2-0' ) . '</span>',
+				        'next_text'          => '<span class="screen-reader-text">' . __( 'Next page', 'ignition-2.0-2-0' ) . '</span>' . ign_get_svg( array( 'icon' => 'arrow-right' ) ),
+				        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'ignition-2.0-2-0' ) . ' </span>',
 			        ) );
 
 			        ?>

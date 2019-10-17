@@ -10,7 +10,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ignition
+ * @package ignition-2.0
  * @since 1.0
  * @version 1.0
  *
@@ -25,7 +25,7 @@ get_header();
 
 <?php
 /*
- * With ignition You can use the WP Customizer to choose a page to show its sections for an archive page
+ * With ignition-2.0 You can use the WP Customizer to choose a page to show its sections for an archive page
  * This way clients can control the archive page instead of needing you to make changes via php.
  * If an archive page is set, then a page will be queried here instead of the archive loop being used. (you can still output the loop as one of the sections using ACF Blocks)
  *
@@ -95,7 +95,7 @@ if ( $page_archive_id ) {
                         <h1>
 							<?php
 							if ( is_home() ) {
-								echo __( 'Blog', 'ignition' );
+								echo __( 'Blog', 'ignition-2.0-2-0' );
 							} else {
 								echo get_the_archive_title();
 							} ?>

@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 				$comments_number = get_comments_number();
 				if ( '1' === $comments_number ) {
 					/* translators: %s: post title */
-					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'ignition' ), get_the_title() );
+					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'ignition-2.0-2-0' ), get_the_title() );
 				} else {
 					printf(
 					/* translators: 1: number of comments, 2: post title */
@@ -42,7 +42,7 @@ if ( post_password_required() ) {
 							'%1$s Replies to &ldquo;%2$s&rdquo;',
 							$comments_number,
 							'comments title',
-							'ignition'
+							'ignition-2.0-2-0'
 						),
 						number_format_i18n( $comments_number ),
 						get_the_title()
@@ -57,15 +57,15 @@ if ( post_password_required() ) {
 					'avatar_size' => 60,
 					'style'       => 'ol',
 					'short_ping'  => true,
-					'reply_text'  => ign_get_svg( array( 'icon' => 'mail-reply' ) ) . __( ' Reply', 'ignition' ),
-					'callback'    => 'ignition_comments_callback'
+					'reply_text'  => ign_get_svg( array( 'icon' => 'mail-reply' ) ) . __( ' Reply', 'ignition-2.0-2-0' ),
+					'callback'    => 'ignition_2_0_comments_callback'
 				) );
 				?>
 			</ol>
 
 			<?php the_comments_pagination( array(
-				'prev_text' => ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'ignition' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'ignition' ) . '</span>' . ign_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'prev_text' => ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'ignition-2.0-2-0' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'ignition-2.0-2-0' ) . '</span>' . ign_get_svg( array( 'icon' => 'arrow-right' ) ),
 			) );
 
 		endif; // Check for have_comments().
@@ -73,7 +73,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, leave note
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-			<p class="no-comments"><?php _e( 'Comments are closed.', 'ignition' ); ?></p>
+			<p class="no-comments"><?php _e( 'Comments are closed.', 'ignition-2.0-2-0' ); ?></p>
 		<?php
 		endif;
 

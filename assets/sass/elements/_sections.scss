@@ -1,6 +1,11 @@
 /*--------------------------------------------------------------
 # Sections and Blocks
 --------------------------------------------------------------*/
+/*
+Most block and section styling can go here or in the block folder with the template file. The choice is up to you.
+ */
+
+/*------- Section defaults --------*/
 section, .section {
 	//default padding. you can override with .no-padding-bottom , or top, or .padding for all around padding
 	padding-top: var(--gap);
@@ -19,18 +24,21 @@ section.heading-center{
 }
 
 
+/*------- Padding classes useful for sections --------*/
+.padding{
+	padding: var(--gap);
+}
 
-/*------- ACF Menu block Defaults --------*/
-.site .acf-menu{
+.no-padding{
 	padding: 0;
 }
 
-.section-menu{
-	background: #4c545d;
-	li{
-		font-weight: normal;
-	}
+.no-padding-top{
+	padding-top: 0;
 }
 
-//ADD YOUR BLOCKS AND SECTIONS HERE
-/*------- Your Block --------*/
+.no-padding-bottom{
+	padding-bottom: 0;
+}
+
+/*------- Your block styling --------*/

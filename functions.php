@@ -4,7 +4,7 @@
  * Ignition functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  *
  * This is the first file you should edit when starting a new theme.
@@ -31,15 +31,15 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
  * as indicating support for post thumbnails.
  * Here is where you can start changing settings.
  */
-function ignition_setup() {
+function ignition_2_0_setup() {
 
 	/*
 	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/ignition
+	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/ignition-2.0
 	 * If you're building a theme based on Ignition, and you downloaded this from github, use a find and replace
-	 * to change 'ignition' to the name of your theme in all the template files.
+	 * to change 'ignition-2.0-2-0' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'ignition' );
+	load_theme_textdomain( 'ignition-2.0-2-0' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -77,7 +77,7 @@ function ignition_setup() {
 	 * Add menus here
 	 */
 	register_nav_menus( array(
-		'top-menu' => __( 'Top Menu', 'ignition' ),
+		'top-menu' => __( 'Top Menu', 'ignition-2.0-2-0' ),
 	) );
 
 	/*
@@ -140,7 +140,7 @@ function ignition_setup() {
 	 * tinymce styles
 	  */
 	add_editor_style( array(
-		get_template_directory_uri() . '/editor-style.min.css?' . wp_get_theme()->get( 'Version' ),
+		get_template_directory_uri() . '/assets/dist/editor_style.bundle.css?' . wp_get_theme()->get( 'Version' ),
 		ign_google_fonts_url()
 	) );
 
@@ -148,7 +148,7 @@ function ignition_setup() {
 	$GLOBALS['content_width'] = 730;
 }
 
-add_action( 'after_setup_theme', 'ignition_setup' );
+add_action( 'after_setup_theme', 'ignition_2_0_setup' );
 
 
 /**
@@ -191,9 +191,9 @@ if ( ! function_exists( 'ign_google_fonts_url' ) ) {
 if ( ! function_exists( 'ign_widgets_init' ) ) {
 	function ign_widgets_init() {
 		register_sidebar( array(
-			'name'          => __( 'Sidebar', 'ignition' ),
+			'name'          => __( 'Sidebar', 'ignition-2.0-2-0' ),
 			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your sidebar.', 'ignition' ),
+			'description'   => __( 'Add widgets here to appear in your sidebar.', 'ignition-2.0-2-0' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -203,7 +203,7 @@ if ( ! function_exists( 'ign_widgets_init' ) ) {
 
 //footer widgets and sections. up to 4
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer', 'ignition' ),
+			'name'          => esc_html__( 'Footer', 'ignition-2.0-2-0' ),
 			'id'            => 'sidebar-2',
 			'description'   => esc_html__( 'Add footer widgets here.', 'pwm' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -214,7 +214,7 @@ if ( ! function_exists( 'ign_widgets_init' ) ) {
 
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 2', 'ignition' ),
+			'name'          => esc_html__( 'Footer 2', 'ignition-2.0-2-0' ),
 			'id'            => 'sidebar-3',
 			'description'   => esc_html__( 'Add footer widgets here.', 'pwm' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -225,7 +225,7 @@ if ( ! function_exists( 'ign_widgets_init' ) ) {
 
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 3', 'ignition' ),
+			'name'          => esc_html__( 'Footer 3', 'ignition-2.0-2-0' ),
 			'id'            => 'sidebar-4',
 			'description'   => esc_html__( 'Add footer widgets here.', 'pwm' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -235,7 +235,7 @@ if ( ! function_exists( 'ign_widgets_init' ) ) {
 		) );
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 4', 'ignition' ),
+			'name'          => esc_html__( 'Footer 4', 'ignition-2.0-2-0' ),
 			'id'            => 'sidebar-5',
 			'description'   => esc_html__( 'Add footer widgets here.', 'pwm' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -293,15 +293,15 @@ add_action( 'admin_init', 'redirect_admin' );
  * Enqueue all scripts and styles.
  * Add your own scripts and styles below.
  */
-function ignition_scripts() {
+function ignition_2_0_scripts() {
 	// Add google fonts
-	wp_enqueue_style( 'ignition-fonts', ign_google_fonts_url(), array(), wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'ignition-2.0-2-0-fonts', ign_google_fonts_url(), array(), wp_get_theme()->get( 'Version' ) );
 
 	// Theme stylesheet. Will get this stylesheet or a child themes stylesheet.
-	wp_enqueue_style( 'ignition-style', get_stylesheet_uri(), '', wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'ignition-2.0-2-0-style', get_stylesheet_uri(), '', wp_get_theme()->get( 'Version' ) );
 
 	//Sass compiles styles. Will get child's theme version if found instead. Child theme should import with sass.
-	wp_enqueue_style( 'ignition-sass-styles', get_theme_file_uri( '/assets/dist/main.bundle.css' ), '', wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'ignition-2.0-2-0-sass-styles', get_theme_file_uri( '/assets/dist/main.bundle.css' ), '', wp_get_theme()->get( 'Version' ) );
 
 	//ie11 js polyfills
 	wp_enqueue_script('polyfill', 'https://polyfill.io/v3/polyfill.min.js?flags=gated&features=AbortController%2Cdefault%2CNodeList.prototype.forEach');
@@ -314,11 +314,11 @@ function ignition_scripts() {
 
 
 	//any javascript file in assets/js that ends with custom.js will be lumped into this file.
-	wp_enqueue_script( 'ignition-custom-js', get_template_directory_uri() . '/assets/dist/main.bundle.js', array( 'jquery' ),
+	wp_enqueue_script( 'ignition-2.0-2-0-custom-js', get_template_directory_uri() . '/assets/dist/main.bundle.js', array( 'jquery' ),
 		wp_get_theme()->get( 'Version' ), true );
 
 	//AJAX ready for .custom.js files
-	wp_localize_script( 'ignition-custom-js', 'frontEndAjax', array(
+	wp_localize_script( 'ignition-2.0-2-0-custom-js', 'frontEndAjax', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'nonce'   => wp_create_nonce( 'ajax_nonce' ),
 		'url'     => home_url(),
@@ -326,7 +326,7 @@ function ignition_scripts() {
 
 
 	//Icons: add icons for use in custom js here
-	wp_localize_script( 'ignition-custom-js', 'icons', array(
+	wp_localize_script( 'ignition-2.0-2-0-custom-js', 'icons', array(
 		'angleRight' => ign_get_svg( array( 'icon' => 'angle-right' ) ),
 		'sidebar'    => ign_get_svg( array( 'icon' => 'sidebar' ) )
 	) );
@@ -345,7 +345,7 @@ function ignition_scripts() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'ignition_scripts' );
+add_action( 'wp_enqueue_scripts', 'ignition_2_0_scripts' );
 
 
 /*
@@ -353,9 +353,9 @@ add_action( 'wp_enqueue_scripts', 'ignition_scripts' );
  */
 function ign_gutenberg_styles() {
 	// Load the theme styles within Gutenberg.
-	wp_enqueue_style( 'ign-gutenberg-style', get_theme_file_uri( '/gutenberg-editor-style.min.css' ), false, wp_get_theme()->get( 'Version' ), 'all' );
+	wp_enqueue_style( 'ign-gutenberg-style', get_theme_file_uri( '/assets/dist/gutenberg_editor_style.bundle.css' ), false, wp_get_theme()->get( 'Version' ), 'all' );
 
-	wp_enqueue_script( 'ignition-custom-js', get_template_directory_uri() . '/assets/dist/main.bundle.js', array( 'jquery' ),
+	wp_enqueue_script( 'ignition-2.0-2-0-custom-js', get_template_directory_uri() . '/assets/dist/main.bundle.js', array( 'jquery' ),
 		wp_get_theme()->get( 'Version' ), true );
 
 }
@@ -367,7 +367,7 @@ add_action( 'enqueue_block_editor_assets', 'ign_gutenberg_styles' );
  * Add login stylehseet
  */
 function my_login_styles() {
-	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/login-style.css' );
+	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/assets/dist/login_style.bundle.css' );
 }
 
 add_action( 'login_enqueue_scripts', 'my_login_styles' );
@@ -378,7 +378,7 @@ add_action( 'login_enqueue_scripts', 'my_login_styles' );
  * experimental
  */
 function footer_styles() {
-	wp_enqueue_style( 'ignition-admin-styles', get_theme_file_uri( '/admin.css' ), '', wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'ignition-2.0-2-0-admin-styles', get_theme_file_uri( '/assets/dist/admin.bundle.css' ), '', wp_get_theme()->get( 'Version' ) );
 }
 
 add_action( 'admin_footer', 'footer_styles', 99 );
@@ -413,7 +413,7 @@ add_action( 'pre_get_posts', 'set_posts_per_page_for_post_types' );
 # Adding More PHP Files
 --------------------------------------------------------------*/
 /**
- * ignition abilities and extra filter and functions
+ * ignition-2.0 abilities and extra filter and functions
  * you can edit the comment walker at the bottom of this file.
  */
 require get_parent_theme_file_path( '/inc/extras.php' );

@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * @version 1.0
  */
@@ -23,7 +23,7 @@
 
 			//not sure gutenberg eve has this anymore
 			wp_link_pages( array(
-				'before'      => '<div class="page-links">' . __( 'Pages:', 'ignition' ),
+				'before'      => '<div class="page-links">' . __( 'Pages:', 'ignition-2.0-2-0' ),
 				'after'       => '</div>',
 				'link_before' => '<span class="page-number">',
 				'link_after'  => '</span>',
@@ -37,8 +37,8 @@
 	<section class="after-article container-content">
 		<?php
 		the_post_navigation( array(
-			'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'ignition' ) . '</span><div class="nav-title"><span class="nav-title-icon-wrapper">' . ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span> <span>%title</span></div>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'ignition' ) . '</span><div class="nav-title"><span>%title</span> <span class="nav-title-icon-wrapper">' . ign_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></div>',
+			'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'ignition-2.0-2-0' ) . '</span><div class="nav-title"><span class="nav-title-icon-wrapper">' . ign_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span> <span>%title</span></div>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'ignition-2.0-2-0' ) . '</span><div class="nav-title"><span>%title</span> <span class="nav-title-icon-wrapper">' . ign_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></div>',
 		) );
 
 		// If comments are open or we have at least one comment, load up the comment template.

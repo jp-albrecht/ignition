@@ -1,11 +1,4 @@
 /*--------------------------------------------------------------
-# Body
---------------------------------------------------------------*/
-body {
-  background: var(--body-bg);
-}
-
-/*--------------------------------------------------------------
 # Logo
 --------------------------------------------------------------*/
 .site-logo {
@@ -21,7 +14,7 @@ body {
 }
 
 /*--------------------------------------------------------------
-# Site Top
+# Site Top - holds logo and main menu at top
 --------------------------------------------------------------*/
 .site-top {
   position: relative; //change to fixed or absolute if wanted.
@@ -30,10 +23,10 @@ body {
 
 
 /*--------------------------------------------------------------
-# Desktop Menu Styling for top menu and default menus
+# Desktop Menu Styling for top menu and default menus that are horizontal
 --------------------------------------------------------------*/
 @media(min-width: $media-nav) {
-  .site-top .menu, .menu {
+  .site-top .menu, .horizontal-menu .menu {
 
     //all menu items default
 	  li {
@@ -67,10 +60,13 @@ body {
 /*--------------------------------------------------------------
 # Menu Styling: Mobile and All other Vertical menus
 --------------------------------------------------------------*/
+//menu items
 .menu li {
   color: white;
 }
 
+
+//menu items in the left panel > current and focused
 #panel-left .menu .current-menu-item > .menu-item-link, #panel-left .menu .menu-item-link.focus {
   background: rgba(0, 0, 0, .5);
   color: white;

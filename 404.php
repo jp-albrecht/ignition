@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * @version 1.0
  */
@@ -16,8 +16,8 @@ get_header(); ?>
 			<div class="container-content text-center">
 				<div class="h1 title-404">404</div>
 				<section>
-					<p><?php _e( 'It looks like nothing was found at this location.', 'ignition' ); ?></p>
-					<a class="button" href="<?php echo home_url(); ?>"><?php _e( 'Go To Home', 'ignition' ); ?></a>
+					<p><?php _e( 'It looks like nothing was found at this location.', 'ignition-2.0-2-0' ); ?></p>
+					<a class="button" href="<?php echo home_url(); ?>"><?php _e( 'Go To Home', 'ignition-2.0-2-0' ); ?></a>
 
 				</section>
 			</div>

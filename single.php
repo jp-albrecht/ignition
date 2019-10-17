@@ -7,7 +7,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package ignition
+ * @package ignition-2.0
  * @since 1.0
  * @version 1.0
  */

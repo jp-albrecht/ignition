@@ -5,3 +5,4 @@ import './objectfitFallback';
 import './responsive-iframe';
 import './sidebar';
 import './smooth-scroll';
+import './template-scripts';

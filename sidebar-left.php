@@ -6,7 +6,7 @@
  * Used to show a sidebar on the right of the content
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * @version 1.0
  */

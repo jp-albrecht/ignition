@@ -1,8 +1,8 @@
 <?php
 /**
- * ignition: Customizer
+ * ignition-2.0: Customizer
  *
- * @package ignition
+ * @package ignition-2.0
  * @since 1.0
  */
 
@@ -11,19 +11,19 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function ignition_customize_register( $wp_customize )
+function ignition_2_0_customize_register( $wp_customize )
 {
     $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
     $wp_customize->selective_refresh->add_partial( 'blogname', array(
         'selector' => '.site-title a',
-        'render_callback' => 'ignition_customize_partial_blogname',
+        'render_callback' => 'ignition_2_0_customize_partial_blogname',
     ) );
 
     $wp_customize->selective_refresh->add_partial( 'blogdescription', array(
         'selector' => '.site-description',
-        'render_callback' => 'ignition_customize_partial_blogdescription',
+        'render_callback' => 'ignition_2_0_customize_partial_blogdescription',
     ) );
 
 
@@ -31,12 +31,12 @@ function ignition_customize_register( $wp_customize )
      * Theme options.
      */
     $wp_customize->add_section( 'theme_options', array(
-        'title' => __( 'Theme Options', 'ignition' ),
+        'title' => __( 'Theme Options', 'ignition-2.0-2-0' ),
         'priority' => 130, // Before Additional CSS.
     ) );
 
     $wp_customize->add_section( 'post_types', array(
-        'title' => __( 'Post Type Archives', 'ignition' ),
+        'title' => __( 'Post Type Archives', 'ignition-2.0-2-0' ),
         'priority' => 130, // Before Additional CSS.
     ) );
 
@@ -55,7 +55,7 @@ function ignition_customize_register( $wp_customize )
             'label' => __( 'Use the customizer?' ),
             'section' => 'theme_options',
             'type' => 'radio',
-            'description' => __('You can make your own layout in header.php and ignore all this.', 'ignition'),
+            'description' => __('You can make your own layout in header.php and ignore all this.', 'ignition-2.0-2-0'),
             'choices' => array(
                 'yes' => 'yes',
                 'no' => 'no'
@@ -75,14 +75,14 @@ function ignition_customize_register( $wp_customize )
 
     $wp_customize->add_control( 'site_top_contained',
         array(
-            'label' => __( 'Contain the site top items', 'ignition' ),
+            'label' => __( 'Contain the site top items', 'ignition-2.0-2-0' ),
             'section' => 'theme_options',
             'type' => 'select',
             'choices' => array(
                 'container' => 'contained',
                 'container-fluid' => 'full width'
             ),
-            'description' => __('You can set contained size via $container in scss', 'ignition')
+            'description' => __('You can set contained size via $container in scss', 'ignition-2.0-2-0')
         ) );
 
 
@@ -101,7 +101,7 @@ function ignition_customize_register( $wp_customize )
             'label' => __( 'Logo Position' ),
             'section' => 'theme_options',
             'type' => 'select',
-            'description' => __('You can make your own layout in php in header.php and ignore presets and manual settings.', 'ignition'),
+            'description' => __('You can make your own layout in php in header.php and ignore presets and manual settings.', 'ignition-2.0-2-0'),
             'choices' => array(
                 'logo-left' => 'logo-left',
                 'logo-right' => 'logo-right',
@@ -157,9 +157,9 @@ function ignition_customize_register( $wp_customize )
 
 
 //add post type header page
-    $ignition_post_types = get_post_types( array('_builtin' => false, 'has_archive' => true), 'objects' );
-    $ignition_post_types[] = get_post_type_object( 'post' );
-    foreach ($ignition_post_types as $post_type) {
+    $ignition_2_0_post_types = get_post_types( array('_builtin' => false, 'has_archive' => true), 'objects' );
+    $ignition_2_0_post_types[] = get_post_type_object( 'post' );
+    foreach ($ignition_2_0_post_types as $post_type) {
 
         $wp_customize->add_setting( 'ign_archive_' . $post_type->name,
             array(
@@ -167,13 +167,13 @@ function ignition_customize_register( $wp_customize )
             ) );
 
         if( $post_type->name == 'post'){
-        	$description = __( 'Set a pages sections to be used for the post. The blog must be set to a static page', 'ignition');
+        	$description = __( 'Set a pages sections to be used for the post. The blog must be set to a static page', 'ignition-2.0-2-0');
         }else{
-        	$description = __( 'Set a page to be used to display the archive For this post type. Note: Post type must have an archive page.', 'ignition' );
+        	$description = __( 'Set a page to be used to display the archive For this post type. Note: Post type must have an archive page.', 'ignition-2.0-2-0' );
         }
 
         $wp_customize->add_control( 'ign_archive_' . $post_type->name, array(
-            'label' => __( 'Archive Page For ', 'ignition' ) . ucwords( $post_type->labels->singular_name ),
+            'label' => __( 'Archive Page For ', 'ignition-2.0-2-0' ) . ucwords( $post_type->labels->singular_name ),
             'type' => 'dropdown-pages',
 //  'allow_addition' => true,
             'section' => 'post_types',
@@ -182,18 +182,18 @@ function ignition_customize_register( $wp_customize )
     }
 }
 
-add_action( 'customize_register', 'ignition_customize_register' );
+add_action( 'customize_register', 'ignition_2_0_customize_register' );
 
 
 /**
  * Render the site title for the selective refresh partial.
  *
  * @since Ignition 1.0
- * @see ignition_customize_register()
+ * @see ignition_2_0_customize_register()
  *
  * @return void
  */
-function ignition_customize_partial_blogname()
+function ignition_2_0_customize_partial_blogname()
 {
     bloginfo( 'name' );
 }
@@ -203,11 +203,11 @@ function ignition_customize_partial_blogname()
  * Render the site tagline for the selective refresh partial.
  *
  * @since Ignition 1.0
- * @see ignition_customize_register()
+ * @see ignition_2_0_customize_register()
  *
  * @return void
  */
-function ignition_customize_partial_blogdescription()
+function ignition_2_0_customize_partial_blogdescription()
 {
     bloginfo( 'description' );
 }
@@ -217,19 +217,19 @@ function ignition_customize_partial_blogdescription()
 /**
  * Bind JS handlers to instantly live-preview changes.
  */
-function ignition_customize_preview_js()
+function ignition_2_0_customize_preview_js()
 {
-    wp_enqueue_script( 'ignition-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js'
+    wp_enqueue_script( 'ignition-2.0-2-0-customize-preview', get_theme_file_uri( '/assets/dist/customize_preview.bundle.js'
     ), array('jquery', 'customize-preview'), '1.0', true );
 }
 
-add_action( 'customize_preview_init', 'ignition_customize_preview_js' );
+add_action( 'customize_preview_init', 'ignition_2_0_customize_preview_js' );
 
 /**
  * Load dynamic logic for the customizer controls area.
  */
-function ignition_panels_js()
+function ignition_2_0_panels_js()
 {
-    wp_enqueue_script( 'ignition-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array(), '1.0', true );
+    wp_enqueue_script( 'ignition-2.0-2-0-customize-controls', get_theme_file_uri( '/assets/dist/customize_controls.bundle.js' ), array(), '1.0', true );
 }
-//add_action( 'customize_controls_enqueue_scripts', 'ignition_panels_js' );
+//add_action( 'customize_controls_enqueue_scripts', 'ignition_2_0_panels_js' );

@@ -2,7 +2,7 @@
 /**
  * SVG icons related functions and filters
  *
- * @package Ignition
+ * @package ignition-2.0-2-0-2.0
  * @since 1.0
  * Based on Twenty Seventeen
  */
@@ -11,7 +11,7 @@
 /**
  * View your current icons easily! just make sure your client does not need a page called icons
  */
-function ignition_icon_template() {
+function ignition_2_0_icon_template() {
 
 	$slug = $_SERVER["REQUEST_URI"];
 	if ( $slug == '/icons' ) {
@@ -19,12 +19,12 @@ function ignition_icon_template() {
 		exit;
 	}
 }
-add_action( "template_redirect", 'ignition_icon_template' );
+add_action( "template_redirect", 'ignition_2_0_icon_template' );
 
 /**
  * Add SVG definitions to the footer.
  */
-function ignition_include_svg_icons() {
+function ignition_2_0_include_svg_icons() {
 	// Define SVG sprite file.
 	$svg_icons = get_parent_theme_file_path( '/assets/icons/symbol-defs.svg' );
 
@@ -33,8 +33,8 @@ function ignition_include_svg_icons() {
 		require_once( $svg_icons );
 	}
 }
-add_action( 'wp_footer', 'ignition_include_svg_icons', 9999 );
-add_action( 'admin_footer', 'ignition_include_svg_icons', 9999 );
+add_action( 'wp_footer', 'ignition_2_0_include_svg_icons', 9999 );
+add_action( 'admin_footer', 'ignition_2_0_include_svg_icons', 9999 );
 
 /**
  * Return SVG markup.
@@ -51,12 +51,12 @@ add_action( 'admin_footer', 'ignition_include_svg_icons', 9999 );
 function ign_get_svg( $args = array() ) {
 	// Make sure $args are an array.
 	if ( empty( $args ) ) {
-		return __( 'Please define default parameters in the form of an array.', 'ignition' );
+		return __( 'Please define default parameters in the form of an array.', 'ignition-2.0-2-0' );
 	}
 
 	// Define an icon.
 	if ( false === array_key_exists( 'icon', $args ) ) {
-		return __( 'Please define an SVG icon filename.', 'ignition' );
+		return __( 'Please define an SVG icon filename.', 'ignition-2.0-2-0' );
 	}
 
 	// Set defaults.
@@ -80,8 +80,8 @@ function ign_get_svg( $args = array() ) {
 	 * Ignition doesn't use the SVG title or description attributes; non-decorative icons are described with .screen-reader-text.
 	 *
 	 * However, child themes can use the title and description to add information to non-decorative SVG icons to improve accessibility.
-	 * Example 1 with title:  echo ignition_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) );
-	 * Example 2 with title and description: <?php echo ignition_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
+	 * Example 1 with title:  echo ignition_2_0_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ) ) );
+	 * Example 2 with title and description: <?php echo ignition_2_0_get_svg( array( 'icon' => 'arrow-right', 'title' => __( 'This is the title', 'textdomain' ), 'desc' => __( 'This is the description', 'textdomain' ) ) ); ?>
 	 *
 	 * See https://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/.
 	 */
@@ -139,9 +139,9 @@ function ign_get_svg( $args = array() ) {
  *
  * @return string  $item_output The menu item output with social icon.
  */
-function ignition_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
+function ignition_2_0_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Get supported social icons.
-	$social_icons = ignition_social_links_icons();
+	$social_icons = ignition_2_0_social_links_icons();
 
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
@@ -155,7 +155,7 @@ function ignition_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	return $item_output;
 }
 
-add_filter( 'walker_nav_menu_start_el', 'ignition_nav_menu_social_icons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'ignition_2_0_nav_menu_social_icons', 10, 4 );
 
 
 /**
@@ -163,7 +163,7 @@ add_filter( 'walker_nav_menu_start_el', 'ignition_nav_menu_social_icons', 10, 4 
  *
  * @return array $social_links_icons
  */
-function ignition_social_links_icons() {
+function ignition_2_0_social_links_icons() {
 	// Supported social links icons.
 	$social_links_icons = array(
 		'behance.net'     => 'behance',
@@ -210,6 +210,6 @@ function ignition_social_links_icons() {
 	 *
 	 * @param array $social_links_icons
 	 */
-	return apply_filters( 'ignition_social_links_icons', $social_links_icons );
+	return apply_filters( 'ignition_2_0_social_links_icons', $social_links_icons );
 }
 

@@ -6,7 +6,7 @@
  * since this theme is not meant to be backward compatible beyond that and
  * relies on many newer functions and markup changes introduced in 4.7.
  *
-* @package Ignition
+* @package ignition-2.0-2-0-2.0
  * @since Ignition 1.0
  */
 
@@ -17,12 +17,12 @@
  *
  * @since Ignition 1.0
  */
-function ignition_switch_theme() {
+function ignition_2_0_switch_theme() {
 	switch_theme( WP_DEFAULT_THEME );
 	unset( $_GET['activated'] );
-	add_action( 'admin_notices', 'ignition_upgrade_notice' );
+	add_action( 'admin_notices', 'ignition_2_0_upgrade_notice' );
 }
-add_action( 'after_switch_theme', 'ignition_switch_theme' );
+add_action( 'after_switch_theme', 'ignition_2_0_switch_theme' );
 
 /**
  * Adds a message for unsuccessful theme switch.
@@ -34,8 +34,8 @@ add_action( 'after_switch_theme', 'ignition_switch_theme' );
  *
  * @global string $wp_version WordPress version.
  */
-function ignition_upgrade_notice() {
-	$message = sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition' ), $GLOBALS['wp_version'] );
+function ignition_2_0_upgrade_notice() {
+	$message = sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition-2.0-2-0' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
 
@@ -46,12 +46,12 @@ function ignition_upgrade_notice() {
  *
  * @global string $wp_version WordPress version.
  */
-function ignition_customize() {
-	wp_die( sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition' ), $GLOBALS['wp_version'] ), '', array(
+function ignition_2_0_customize() {
+	wp_die( sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition-2.0-2-0' ), $GLOBALS['wp_version'] ), '', array(
 		'back_link' => true,
 	) );
 }
-add_action( 'load-customize.php', 'ignition_customize' );
+add_action( 'load-customize.php', 'ignition_2_0_customize' );
 
 /**
  * Prevents the Theme Preview from being loaded on WordPress versions prior to 4.7.
@@ -60,9 +60,9 @@ add_action( 'load-customize.php', 'ignition_customize' );
  *
  * @global string $wp_version WordPress version.
  */
-function ignition_preview() {
+function ignition_2_0_preview() {
 	if ( isset( $_GET['preview'] ) ) {
-		wp_die( sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition' ), $GLOBALS['wp_version'] ) );
+		wp_die( sprintf( __( 'Ignition requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'ignition-2.0-2-0' ), $GLOBALS['wp_version'] ) );
 	}
 }
-add_action( 'template_redirect', 'ignition_preview' );
+add_action( 'template_redirect', 'ignition_2_0_preview' );
