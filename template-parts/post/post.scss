@@ -36,7 +36,7 @@
 	}
 
 	.more-link {
-		@extend .button;
+		@extend .button !optional;
 	}
 
 	.card-content {

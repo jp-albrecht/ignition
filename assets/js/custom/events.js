@@ -1,4 +1,4 @@
-import { throttle, wrap } from './utils';
+import { throttle, wrap } from '../utils';
 
 /*--------------------------------------------------------------
 # Adding some global events and functions users can use via data attributes
