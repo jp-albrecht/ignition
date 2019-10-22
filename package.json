@@ -12,19 +12,16 @@
     "sass-task:compile": "node-sass-chokidar --output-style compressed --source-map true assets/sass/ -o assets/dist/css --ext min.css",
     "sass-task:postcss": "postcss assets/dist/css/*.min.css -d assets/dist/css",
     "sass:build": "npm-run-all -p sass-task:*",
-    "sass:watch": "chokidar 'assets/sass/**/*.scss' -c 'npm run sass:build'",
-
-    "webpack:build": "webpack custom=./assets/js/custom/index.js customize-controls=./assets/js/customize-controls.js customize-preview=./assets/js/customize-preview.js gform-extras=./assets/js/gform-extras.js -o assets/dist/js/[name].bundle.js --devtool=cheap-source-map",
-    "webpack:watch": "chokidar 'assets/js/**/*.js' -c 'npm run webpack:build'",
-
-    "browsersync": "browser-sync start --port 3000 --proxy http://localhost:8000 --files assets/dist/**/**",
-    "reload": "browser-sync reload",
-
-    "clean": "rimraf assets/dist",
-    "build": "npm-run-all -p *:build",
-    "watch": "npm-run-all -p *:watch",
-
-    "start": "npm-run-all -p clean build watch"
+    "sass:watch": "chokidar 'assets/sass/**/*.scss' -c 'npm run sass:clean && npm run sass:build && browser-sync reload'",
+    "sass:clean": "rimraf assets/dist/css",
+    "js:build": "webpack custom=./assets/js/custom/index.js customize-controls=./assets/js/customize-controls.js customize-preview=./assets/js/customize-preview.js gform-extras=./assets/js/gform-extras.js -o assets/dist/js/[name].bundle.js --devtool=cheap-source-map",
+    "js:watch": "chokidar 'assets/js/**/*.js' -c 'npm run js:clean && npm run js:build && browser-sync reload'",
+    "js:clean": "rimraf assets/dist/js",
+    "browsersync": "browser-sync start --port 3000 --proxy http://localhost:8000 --files './**/*.php'",
+    "clean": "npm-run-all *:clean",
+    "build": "npm-run-all *:build",
+    "watch": "npm-run-all -p *:watch browsersync",
+    "start": "npm run clean && npm run build && npm run watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -38,7 +35,6 @@
     "node-sass-chokidar": "^1.3.5",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.3",
-    "postcss-rtl": "^1.5.0",
     "rtlcss": "^2.4.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
