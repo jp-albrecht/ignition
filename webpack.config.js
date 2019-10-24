@@ -5,21 +5,26 @@ const WebpackRTLPlugin = require( 'webpack-rtl-plugin' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const FixStyleOnlyEntries = require( 'webpack-fix-style-only-entries' );
+const customJS = glob.sync( './assets/js/custom/*.js' );
+const templatePartsJS = glob.sync( './template-parts/**/*.js' );
+const templatePartsSCSS = glob.sync( './template-parts/**/*.scss' );
 
 module.exports = {
 	mode: 'development',
 	entry: {
-		custom: glob.sync( './assets/js/custom/*.js' ),
-		template_parts: glob.sync( './template-parts/**/*.{js,scss}' ),
+		custom: [ ...customJS, ...templatePartsJS ],
 		gform_extras: './assets/js/gform_extras.js',
 		customize_controls: './assets/js/customize-controls.js',
 		customize_preview: './assets/js/customize-preview.js',
 		//CSS Entries
-		main: './assets/sass/main.scss',
+		main: [ './assets/sass/main.scss', ...templatePartsSCSS ],
 		admin: './assets/sass/admin.scss',
 		login_style: './assets/sass/login-style.scss',
-		editor_style: './assets/sass/editor-style.scss',
-		gutenberg_editor_style: './assets/sass/gutenberg-editor-style.scss',
+		editor_style: [ './assets/sass/editor-style.scss', ...templatePartsSCSS ],
+		gutenberg_editor_style: [
+			'./assets/sass/gutenberg-editor-style.scss',
+			...templatePartsSCSS,
+		],
 	},
 	output: {
 		filename: 'js/[name].bundle.js',

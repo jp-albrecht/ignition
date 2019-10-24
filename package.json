@@ -5,13 +5,12 @@
   "author": "JP Albrecht",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpha188/ignition"
+    "url": "https://github.com/jp-albrecht/ignition"
   },
   "license": "MIT",
   "scripts": {
     "start": "webpack --watch",
-    "babel": "babel --watch assets/js/main.js --out-file assets/dist/main.bundle.js",
-    "style": "node-sass --watch assets/sass/main.scss -o assets/dist"
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -21,7 +20,6 @@
     "@wordpress/eslint-plugin": "^3.0.0",
     "autoprefixer": "^9.6.4",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
@@ -31,6 +29,7 @@
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "sass": "^1.23.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.1",
